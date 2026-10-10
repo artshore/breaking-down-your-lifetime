@@ -3,9 +3,7 @@ function main() {
   var [days, weeks, months] = yearsSpent(yearsOld);
   var [daysLeft, weeksLeft, monthsLeft] = yearsLeft(yearsOld);
 
-  console.log(
-    stringGenerator(days, weeks, months, daysLeft, weeksLeft, monthsLeft),
-  );
+  alert(stringGenerator(days, weeks, months, daysLeft, weeksLeft, monthsLeft));
 }
 
 function yearsSpent(yearsOld) {
