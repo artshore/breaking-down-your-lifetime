@@ -1,21 +1,34 @@
 function main() {
   var yearsOld = prompt("How old are you?");
+  var [days, weeks, months] = yearsSpent(yearsOld);
+  var [daysLeft, weeksLeft, monthsLeft] = yearsLeft(yearsOld);
+
+  console.log(
+    stringGenerator(days, weeks, months, daysLeft, weeksLeft, monthsLeft),
+  );
+}
+
+function yearsSpent(yearsOld) {
   var days = yearsToDays(yearsOld);
   var weeks = yearsToWeeks(yearsOld);
   var months = yearsToMonths(yearsOld);
-
-  console.log(stringGenerator(days, weeks, months));
+  return [days, weeks, months];
 }
-function stringGenerator(days, weeks, months) {
-  var daysLeft = yearsToDays(90) - days;
-  var weeksLeft = yearsToDays(90) - weeks;
-  var monthsLeft = yearsToDays(90) - months;
+
+function yearsLeft(yearsOld) {
+  var daysLeft = yearsToDays(90) - yearsToDays(yearsOld);
+  var weeksLeft = yearsToWeeks(90) - yearsToWeeks(yearsOld);
+  var monthsLeft = yearsToMonths(90) - yearsToMonths(yearsOld);
+  return [daysLeft, weeksLeft, monthsLeft];
+}
+
+function stringGenerator(days, weeks, months, daysLeft, weeksLeft, monthsLeft) {
   return (
     "You have seen " +
     days +
-    ", " +
+    " days , " +
     weeks +
-    " and " +
+    " weeks and " +
     months +
     " months in your life. You have " +
     daysLeft +
